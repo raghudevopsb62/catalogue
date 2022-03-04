@@ -1,0 +1,3 @@
+COMPONENT = "catalogue"
+ENV       = "dev"
+
