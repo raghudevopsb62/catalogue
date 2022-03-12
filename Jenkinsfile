@@ -98,7 +98,7 @@ pipeline {
       steps {
         sh '''
           TAG=$(cat VERSION | grep "^#[0-9].[0-9].[0-9]" | head -1|sed -e "s|#|v|")
-          curl -v -u admin:admin123 --upload-file catalogue-${TAG}.zip http://172.31.9.227:8081/repository/catalogue/catalogue-${TAG}.zip
+          curl -f -v -u admin:admin123 --upload-file catalogue-${TAG}.zip http://172.31.9.227:8081/repository/catalogue/catalogue-${TAG}.zip
         '''
       }
     }
