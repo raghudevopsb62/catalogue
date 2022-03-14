@@ -1,3 +1,4 @@
 @Library('roboshop') _
 env.COMPONENT="catalogue"
-nodejs()
+env.TYPE="nodejs"
+mainCI()
