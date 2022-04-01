@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue
+  labels:
+    component: catalogue
+    project: roboshop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: catalogue
+      project: roboshop
+  template:
+    metadata:
+      labels:
+        component: catalogue
+        project: roboshop
+    spec:
+      containers:
+      - name: catalogue
+        image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/catalogue:TAG
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue
+  labels:
+    component: catalogue
+    project: roboshop
+spec:
+  selector:
+    component: catalogue
+    project: roboshop
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
